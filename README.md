@@ -63,7 +63,7 @@ Whenever a tab's directory changes, tabcd.nvim computes an abbreviated label
 for it. tabcd.nvim doesn't render a tabline itself, it only keeps the label
 available for you to use as you see fit.
 
-- `t:tabcd_name` — a tab-scoped variable, readable directly from a `tabline`/
+- `t:tabcd_name` - a tab-scoped variable, readable directly from a `tabline`/
   `guitablabel` format string or from Vimscript.
 - `require("tabcd").get_tab_name(tabnr)` - same tab name from Lua
 
