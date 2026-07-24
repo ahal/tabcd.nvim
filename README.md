@@ -51,14 +51,14 @@ Calling `setup()` is optional, the plugin works out of the box with defaults.
   the current tab's working directory to it.
 - `:TabCDNew` - Same as `:TabCD` except open a new tab first.
 
+Both take an optional directory argument that bypasses the picker entirely.
+
 Alternatively call the underlying functions programmatically:
 
 ```lua
 require("tabcd").tabcd()
 require("tabcd").tabcd_new()
 ```
-
-Both take an optional directory argument that bypasses the picker entirely.
 
 ### Tab Name
 
