@@ -176,7 +176,7 @@ Run `:checkhealth tabcd` to see which picker is being used.
 ## Directory discovery
 
 When [`fd`](https://github.com/sharkdp/fd) (or `fdfind`) is installed, it's
-used to list directories — this respects `.gitignore` and is fast even on
+used to list directories. This respects `.gitignore` and is fast even on
 large monorepos. If `fd` isn't available, a native `vim.fs.dir` walk is used
 instead; this fallback does **not** respect `.gitignore`.
 
