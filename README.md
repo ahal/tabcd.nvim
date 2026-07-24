@@ -42,6 +42,8 @@ Calling `setup()` is optional, the plugin works out of the box with defaults.
 
 ## Usage
 
+### Change Working Directories
+
 - `:TabCD` - Use a picker to choose a directory in the current root and change
   the current tab's working directory to it.
 - `:TabCDNew` - Same as `:TabCD` except open a new tab first.
@@ -54,6 +56,16 @@ require("tabcd").tabcd_new()
 ```
 
 Both take an optional directory argument that bypasses the picker entirely.
+
+### Tab Name
+
+Whenever a tab's directory changes, tabcd.nvim computes an abbreviated label
+for it. tabcd.nvim doesn't render a tabline itself, it only keeps the label
+available for you to use as you see fit.
+
+- `t:tabcd_name` — a tab-scoped variable, readable directly from a `tabline`/
+  `guitablabel` format string or from Vimscript.
+- `require("tabcd").get_tab_name(tabnr)` - same tab name from Lua
 
 ### Examples
 
@@ -74,6 +86,47 @@ vim.cmd([[cnoreabbrev <expr> tcd (getcmdtype() ==# ':' && getcmdline() ==# 'tcd'
 Note this only rewrites what you *type* interactively, it has no effect on
 `vim.cmd.tabnew()`/`vim.cmd.tcd()` calls made by other plugins or scripts,
 which still run the real built-ins.
+
+#### Update tabline
+
+Most tabline plugins support a custom per-tab name function:
+
+```lua
+-- tabby.nvim
+require("tabby").setup({
+  option = {
+    tab_name = {
+      name_fallback = function(tabid)
+        return require("tabcd").get_tab_name(vim.api.nvim_tabpage_get_number(tabid))
+      end,
+    },
+  },
+})
+
+-- lualine.nvim
+require("lualine").setup({
+  tabline = {
+    lualine_a = {
+      {
+        "tabs",
+        mode = 2,
+        fmt = function(_, tab)
+          return require("tabcd").get_tab_name(tab.tabnr)
+        end,
+      },
+    },
+  },
+})
+
+-- bufferline.nvim
+require("bufferline").setup({ options = { mode = "tabs" } })
+vim.api.nvim_create_autocmd("DirChanged", {
+  pattern = "tabpage",
+  callback = function()
+    vim.t.name = require("tabcd").get_tab_name()
+  end,
+})
+```
 
 ## Configuration
 
