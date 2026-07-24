@@ -137,8 +137,8 @@ require("tabcd").setup({
   -- 1 = top-level dirs only. 2 = top-level dirs + their children. etc.
   depth = 2,
 
-  -- Force a specific picker: "telescope" | "snacks" | "fzf" | "select".
-  -- nil = auto-detect (telescope > snacks > fzf-lua > vim.ui.select).
+  -- Force a specific picker: "telescope" | "snacks" | "fzf" | "mini" | "select".
+  -- nil = auto-detect (telescope > snacks > fzf-lua > mini.pick > vim.ui.select).
   picker = nil,
 
   -- Include dotfile directories in discovery.
@@ -169,6 +169,7 @@ If any of the following pickers are detected, they will automatically be used.
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [snacks.nvim](https://github.com/folke/snacks.nvim)
 - [fzf-lua](https://github.com/ibhagwan/fzf-lua)
+- [mini.pick](https://github.com/echasnovski/mini.nvim)
 - `vim.ui.select` (always available as a fallback)
 
 Run `:checkhealth tabcd` to see which picker is being used.

@@ -4,11 +4,12 @@ local adapters = {
   telescope = "tabcd.picker.telescope",
   snacks = "tabcd.picker.snacks",
   fzf = "tabcd.picker.fzf",
+  mini = "tabcd.picker.mini",
   select = "tabcd.picker.select",
 }
 
 -- Order in which installed pickers are auto-detected.
-local detect_order = { "telescope", "snacks", "fzf" }
+local detect_order = { "telescope", "snacks", "fzf", "mini" }
 
 ---@param name string
 ---@return boolean
@@ -20,6 +21,8 @@ local function is_available(name)
     return ok and snacks.picker ~= nil
   elseif name == "fzf" then
     return (pcall(require, "fzf-lua"))
+  elseif name == "mini" then
+    return (pcall(require, "mini.pick"))
   elseif name == "select" then
     return true
   end

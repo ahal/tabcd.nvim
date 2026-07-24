@@ -4,6 +4,7 @@ local picker_display_names = {
   telescope = "telescope.nvim",
   snacks = "snacks.nvim",
   fzf = "fzf-lua",
+  mini = "mini.pick",
   select = "vim.ui.select",
 }
 
@@ -37,7 +38,7 @@ function M.check()
   local picker_display = picker_display_names[picker_name] or picker_name
   if picker_name == "select" then
     vim.health.warn(("Using picker: %s (fallback)"):format(picker_display), {
-      "No supported picker plugin was found: telescope.nvim, snacks.nvim, fzf-lua.",
+      "No supported picker plugin was found: telescope.nvim, snacks.nvim, fzf-lua, mini.pick.",
     })
   else
     vim.health.ok(("Using picker: %s"):format(picker_display))

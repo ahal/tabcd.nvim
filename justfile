@@ -2,6 +2,7 @@ plenary_dir := ".tests/plenary.nvim"
 telescope_dir := ".tests/telescope.nvim"
 snacks_dir := ".tests/snacks.nvim"
 fzf_lua_dir := ".tests/fzf-lua"
+mini_dir := ".tests/mini.nvim"
 
 # Run the unit test suite
 test: clone-plenary
@@ -9,8 +10,8 @@ test: clone-plenary
         -c "PlenaryBustedDirectory tests/tabcd { minimal_init = 'tests/minimal_init.lua' }"
 
 # Run integration tests against real picker plugins (network access required
-# on first run, to vendor telescope/snacks/fzf-lua into .tests/)
-test-integration: clone-plenary clone-telescope clone-snacks clone-fzf-lua
+# on first run, to vendor telescope/snacks/fzf-lua/mini.nvim into .tests/)
+test-integration: clone-plenary clone-telescope clone-snacks clone-fzf-lua clone-mini
     nvim --headless --noplugin -u tests/integration/minimal_init.lua \
         -c "PlenaryBustedDirectory tests/integration { minimal_init = 'tests/integration/minimal_init.lua' }"
 
@@ -29,6 +30,10 @@ clone-snacks:
 # Fetch fzf-lua if it isn't already vendored
 clone-fzf-lua:
     just _clone-latest ibhagwan/fzf-lua {{ fzf_lua_dir }}
+
+# Fetch mini.nvim (provides mini.pick) if it isn't already vendored
+clone-mini:
+    just _clone-latest echasnovski/mini.nvim {{ mini_dir }}
 
 # Clone the latest tagged release of `repo` into `dir`, or its default branch
 # if it has no releases (many nvim plugins are rolling-release with no tags).

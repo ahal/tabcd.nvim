@@ -2,7 +2,7 @@ local M = {}
 
 ---@class TabCDConfig
 ---@field depth integer Max depth to search for directories. 1 = top-level only.
----@field picker? "telescope"|"snacks"|"fzf"|"select" Force a specific picker. nil = auto-detect.
+---@field picker? "telescope"|"snacks"|"fzf"|"mini"|"select" Force a specific picker. nil = auto-detect.
 ---@field hidden boolean Include dotfile directories in discovery.
 ---@field include_root boolean Offer the root itself as a pick.
 ---@field fd { cmd: string?, extra_args: string[] }

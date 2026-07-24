@@ -5,5 +5,6 @@ vim.opt.rtp:prepend(tests_dir .. "/plenary.nvim")
 vim.opt.rtp:prepend(tests_dir .. "/telescope.nvim")
 vim.opt.rtp:prepend(tests_dir .. "/snacks.nvim")
 vim.opt.rtp:prepend(tests_dir .. "/fzf-lua")
+vim.opt.rtp:prepend(tests_dir .. "/mini.nvim")
 
 vim.cmd("runtime plugin/plenary.vim")
