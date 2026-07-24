@@ -1,8 +1,9 @@
 # tabcd.nvim
 
-Quickly `:tcd` into a subdirectory chosen via a picker, rooted wherever Neovim
-was first opened. Built for monorepos where you want different tabs scoped to a
-different subdirectories, or you want to work across multiple projects at once.
+Quickly change a tab's working directory to a subdirectory chosen via a picker,
+rooted wherever Neovim was first opened. Built for monorepos where you want
+different tabs scoped to a different subdirectories, or for when you want to
+work across multiple projects at once.
 
 The root is Neovim's current working directory (not necessarily the project
 root), captured **once** when the plugin loads. This can either be at Neovim
