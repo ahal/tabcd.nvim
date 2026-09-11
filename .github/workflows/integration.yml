@@ -21,4 +21,6 @@ jobs:
 
       - uses: extractions/setup-just@v2
 
+      - run: sudo apt-get update && sudo apt-get install -y fzf
+
       - run: just test-integration
