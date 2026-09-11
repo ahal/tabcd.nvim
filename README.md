@@ -1,6 +1,7 @@
 # tabcd.nvim
 
 [![ci](https://github.com/ahal/tabcd.nvim/actions/workflows/ci.yml/badge.svg)](https://github.com/ahal/tabcd.nvim/actions/workflows/ci.yml)
+[![integration](https://github.com/ahal/tabcd.nvim/actions/workflows/integration.yml/badge.svg)](https://github.com/ahal/tabcd.nvim/actions/workflows/integration.yml)
 
 Quickly change a tab's working directory to a subdirectory chosen via a picker,
 rooted wherever Neovim was first opened. Built for monorepos where you want
