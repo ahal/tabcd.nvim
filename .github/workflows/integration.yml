@@ -12,14 +12,14 @@ jobs:
       matrix:
         neovim-version: [stable, nightly]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
           version: ${{ matrix.neovim-version }}
 
-      - uses: extractions/setup-just@v2
+      - uses: extractions/setup-just@v4
 
       - run: sudo apt-get update && sudo apt-get install -y fzf
 
